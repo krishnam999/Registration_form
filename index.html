@@ -3,9 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Form page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        .typing-text {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid #2563eb;
+            animation: typewriter 3s steps(20),
+                       blink 0.75s ;
+            margin: 0 auto;
+        }
+
+        .checkbox-animation {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .checkbox-animation:checked {
+            transform: scale(1.1);
+            animation: checkmark 0.4s ease-in-out;
+        }
+
+        @keyframes checkmark {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
 </head>
-<body>
-    <h1>hello jworld</h1>
+<body class="bg-gradient-to-br from-blue-500 to-white-500 text-gray-500 w-full h-screen flex items-center justify-center">
+    <form action="#" method="post" class="bg-white p-8 rounded-xl shadow-2xl w-96 space-y-6">
+        <h2 class="text-3xl font-bold mb-6 text-center text-gray-800"><span class="typing-text">Registration form</span></h2>
+        
+        <div class="space-y-2">
+            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 hover:border-blue-400 hover:shadow-md hover:scale-[1.02]">
+        </div>
+
+        <div class="space-y-2">
+            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 hover:border-blue-400 hover:shadow-md hover:scale-[1.02]">
+        </div>
+
+        <div class="space-y-2">
+            <label for="age" class="block text-sm font-medium text-gray-700">Age</label>
+            <input type="number" id="age" name="age" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 hover:border-blue-400 hover:shadow-md hover:scale-[1.02]">
+        </div>
+
+        <div class="space-y-2">
+            <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
+            <select id="gender" name="gender" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 hover:border-blue-400 hover:shadow-md hover:scale-[1.02]">
+                <option value="">Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div class="flex items-center space-x-2">
+            <input type="checkbox" required id="check" name="check" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 checkbox-animation cursor-pointer">
+            <label for="check" class="text-sm text-gray-700">I agree to the terms and conditions</label>
+        </div>
+
+        <div class="pt-4">
+            <button type="submit" class="w-full bg-blue-600 hover:bg-red-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-95 ease-in-out">
+                Submit
+            </button>
+        </div>
+    </form>
 </body>
 </html>
